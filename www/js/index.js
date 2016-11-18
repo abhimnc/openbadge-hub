@@ -390,7 +390,17 @@ mainPage = new Page("main",
         if (app.bluetoothInitialized) {
             // after bluetooth is disabled, it's automatically re-enabled.
             //this.beginRefreshData();
-            app.disableBluetooth();
+
+
+            //app.disableBluetooth();
+
+            // why does that line above exist?
+            // like really. it doesnt make sense to have,
+            // and removing it fixes the bug on some CM13's
+            // where bluetooth gets disables immediately
+            // after being enabled. which makes sense, because
+            // that line is literally saying: "if we show and bluetooth
+            // is enabled, disable it"
         }
     },
     function onHide() {
